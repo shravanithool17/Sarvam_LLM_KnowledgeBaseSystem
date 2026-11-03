@@ -1,7 +1,8 @@
 <div align="center">
 
 <img src="https://img.shields.io/badge/Powered%20by-Sarvam%20AI-7c3aed?style=for-the-badge&logo=sparkles&logoColor=white"/>
-<img src="https://img.shields.io/badge/Python-3.10+-3776ab?style=for-the-badge&logo=python&logoColor=white"/>
+<img src="https://img.shields.io/badge/Frontend-React%2019%20%7C%20Vite%20%7C%20TypeScript-61dafb?style=for-the-badge&logo=react&logoColor=black"/>
+<img src="https://img.shields.io/badge/Styling-Tailwind%20CSS-38bdf8?style=for-the-badge&logo=tailwindcss&logoColor=white"/>
 <img src="https://img.shields.io/badge/FastAPI-0.115+-009688?style=for-the-badge&logo=fastapi&logoColor=white"/>
 <img src="https://img.shields.io/badge/Tests-209%20Passing-22c55e?style=for-the-badge&logo=pytest&logoColor=white"/>
 <img src="https://img.shields.io/badge/License-MIT-f59e0b?style=for-the-badge"/>
@@ -123,13 +124,23 @@ SARVAM_MODEL=sarvam-105b          # or sarvam-105b-conversations
 
 > **No key?** The platform runs in **simulated mode** — all features work with realistic mock data, clearly labelled.
 
-### 3 · Launch
+### 3 · Launch Backend & React SaaS Frontend
 
+**Terminal 1 — Backend (FastAPI):**
 ```bash
 python server.py
+# Server running at http://127.0.0.1:8000
 ```
 
-Open **[http://127.0.0.1:8000](http://127.0.0.1:8000)** 🎉
+**Terminal 2 — Premium React SaaS Frontend:**
+```bash
+cd frontend
+npm install
+npm run dev
+# Frontend running at http://localhost:5173
+```
+
+Open **[http://localhost:5173](http://localhost:5173)** to experience the full React SaaS application! 🎉
 
 ---
 
