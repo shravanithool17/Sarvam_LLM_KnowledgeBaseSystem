@@ -97,7 +97,7 @@ _server_start_time = time.monotonic()
 # Paths
 # ---------------------------------------------------------------------------
 BASE_DIR = Path(__file__).resolve().parent
-TEMPLATES_DIR = BASE_DIR / "templates"
+FRONTEND_DIST = BASE_DIR / "frontend" / "dist"
 
 # ---------------------------------------------------------------------------
 # Sample document (preserved exactly from original)
@@ -195,11 +195,16 @@ def _strip_api_key(data: Dict[str, Any]) -> Dict[str, Any]:
 
 @app.get("/", response_class=HTMLResponse)
 async def serve_ui():
-    """Serves the dark-mode glassmorphic frontend dashboard."""
-    index_file = TEMPLATES_DIR / "index.html"
-    if not index_file.exists():
-        raise HTTPException(status_code=404, detail="Frontend template not found.")
-    return HTMLResponse(content=index_file.read_text(encoding="utf-8"))
+    """Serves the React SaaS application (or built frontend)."""
+    index_file = FRONTEND_DIST / "index.html"
+    if index_file.exists():
+        return HTMLResponse(content=index_file.read_text(encoding="utf-8"))
+    return HTMLResponse(
+        content="""<!DOCTYPE html><html><body style="background:#07090e;color:#fff;font-family:sans-serif;padding:40px;text-align:center;">
+        <h2>LLM Knowledge Pipeline 2.0 API is Online</h2>
+        <p>The React frontend is in <code>frontend/</code> and runs via <code>npm run dev</code> at <a href="http://localhost:5173" style="color:#a855f7;">http://localhost:5173</a>.</p>
+        </body></html>"""
+    )
 
 
 @app.get("/api/status")
