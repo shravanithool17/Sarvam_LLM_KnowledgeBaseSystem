@@ -1,0 +1,19 @@
+INTRODUCTION TO KNOWLEDGE ENGINEERING
+
+Knowledge engineering is the discipline of building systems that encode, organise, and retrieve structured information. It bridges the gap between raw unstructured data and machine-interpretable representations suitable for AI applications.
+
+THE ROLE OF DOCUMENT PROCESSING
+
+Modern knowledge pipelines begin with document ingestion. A document may arrive in PDF, plain text, or DOCX format. The ingestion stage extracts raw text page by page, preserving structural boundaries such as paragraphs and sections. Each page is annotated with metadata including character count, word count, and page number.
+
+BOUNDARY-AWARE CHUNKING
+
+Once text is extracted, it must be divided into manageable units called chunks. The chunking strategy used here is boundary-aware: it respects sentence and paragraph delimiters to avoid severing ideas mid-sentence. Each chunk receives a unique identifier (for example CHK-001) and carries a reference to its source page.
+
+KNOWLEDGE SYNTHESIS
+
+After chunking, an AI model analyses each batch of chunks and produces a structured knowledge representation. This includes an executive summary, a catalogue of key facts and entities, and a set of instruction-response pairs suitable for fine-tuning downstream language models.
+
+QUALITY EVALUATION
+
+The final stage evaluates the generated knowledge for redundancy and grounding. Redundancy is measured using Jaccard similarity between chunk pairs. Grounding is verified by checking that the keywords of each answer appear in the cited source chunk.
